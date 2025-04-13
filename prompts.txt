@@ -1,0 +1,32 @@
+### Professional Reformulation of Assessment Prompts
+
+1. **Parser Visit Method Addition:**
+> Please guide me on how to add visit methods for the parser rules defined or modified in step 3a (e.g., `visitByteSizeArg`, `visitTimeDurationArg`, or modifying `visitValue` if needed). Also, explain how to add the created token instances to the `TokenGroup`.
+
+2. **GrammarBasedParser Modification:**
+> I’ve added visit methods for `ByteSizeArg` and `TimeDurationArg` in the `GrammarBasedParser` class. Please help me review and update the class to ensure it's correctly integrated.
+
+3. **TokenGroup Resolution Issue:**
+> I'm encountering an issue where `TokenGroup` is not being resolved. Although it exists in a different module within the same project structure, the compiler cannot locate it. How can I properly resolve this import?
+
+4. **Creating a New Aggregation Directive:**
+> I need to implement a new directive class named `AggregateStats` that performs aggregation operations by implementing the `Directive` interface. It should support byte size and time duration aggregation.
+
+5. **Directive Grammar File Location:**
+> Where can I find the `directives.g4` file used to define grammar rules for parsing directives?
+
+6. **Enhancing AggregateStats Directive:**
+> Please provide a complete and updated implementation of the `AggregateStats` directive class with support for total/average aggregation, handling unit conversions, and using `Store` from the `ExecutorContext` for intermediate storage.
+
+7. **Next Steps after Directive Creation:**
+> I've implemented the `AggregateStats` directive. What should I do next to ensure it’s registered and testable within the Wrangler framework?
+
+8. **Registering the New Directive:**
+> Where should I add the line `registry.register("aggregate-stats", AggregateStats.class);` to ensure that the new directive is properly registered and recognized?
+
+9. **Verifying Functionality:**
+> How can I verify whether my custom directive implementation is functioning correctly?
+
+10. **Running the Project:**
+> How do I run this Wrangler project locally to test my directive implementation? Please provide the steps for both IDE-based and command-line execution.
+
