@@ -66,6 +66,13 @@ public class GrammarWalker {
       String prefix = "Encountered syntax error, please ensure the directive is valid:\n";
       throw new DirectiveParseException(prefix + errors.next().getMessage(), errors);
     }
+      TokenGroup tokenGroup = new TokenGroup();
+
+      for (DirectivesParser.ValueContext valueCtx : ctx.value()) {
+          Token token = valueCtx.accept(recipeCompiler); // This will call visitByteSizeArg/visitTimeDurationArg if matched
+          tokenGroup.add(token);
+      }
+
 
     Iterator<TokenGroup> tokenGroups = status.getSymbols().iterator();
     while (tokenGroups.hasNext()) {

@@ -22,6 +22,7 @@ import io.cdap.wrangler.api.SourceInfo;
 import io.cdap.wrangler.api.Triplet;
 import io.cdap.wrangler.api.parser.Bool;
 import io.cdap.wrangler.api.parser.BoolList;
+import io.cdap.wrangler.api.parser.ByteSize;
 import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.ColumnNameList;
 import io.cdap.wrangler.api.parser.DirectiveName;
@@ -315,6 +316,11 @@ public final class RecipeVisitor extends DirectivesBaseVisitor<RecipeSymbol.Buil
     }
     builder.addToken(new TextList(strs));
     return builder;
+  }
+
+  public Token visitByteSizeArg(DirectivesParser.ByteSizeArgContext ctx) {
+  String raw = ctx.getText(); // e.g., "10MB"
+  return new ByteSize(raw);   // Your custom token class in wrangler-api
   }
 
   private SourceInfo getOriginalSource(ParserRuleContext ctx) {

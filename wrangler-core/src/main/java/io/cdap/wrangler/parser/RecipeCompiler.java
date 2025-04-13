@@ -40,6 +40,19 @@ public final class RecipeCompiler implements Compiler {
     return compile(CharStreams.fromString(recipe));
   }
 
+@Override
+public Token visitByteSizeArg(DirectivesParser.ByteSizeArgContext ctx) {
+    String text = ctx.getText(); // e.g. "10MB"
+    return new ByteSize(text);  // You created this class
+}
+
+@Override
+public Token visitTimeDurationArg(DirectivesParser.TimeDurationArgContext ctx) {
+    String text = ctx.getText(); // e.g. "200ms"
+    return new TimeDuration(text);  // You created this class
+}
+
+
   @Override
   public CompileStatus compile(Location location) throws CompileException {
     try (InputStream is = location.getInputStream()) {
